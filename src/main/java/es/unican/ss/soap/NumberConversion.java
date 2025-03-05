@@ -19,7 +19,7 @@ import jakarta.xml.ws.WebServiceFeature;
  * Generated source version: 3.0
  * 
  */
-@WebServiceClient(name = "NumberConversion", targetNamespace = "http://www.dataaccess.com/webservicesserver/", wsdlLocation = "https://www.dataaccess.com/webservicesserver/NumberConversion.wso?WSDL")
+@WebServiceClient(name = "NumberConversion", targetNamespace = "http://www.dataaccess.com/webservicesserver/", wsdlLocation = "https://www.dataaccess.com/webservicesserver/NumberConversion.wso?wsdl")
 public class NumberConversion
     extends Service
 {
@@ -32,7 +32,7 @@ public class NumberConversion
         URL url = null;
         WebServiceException e = null;
         try {
-            url = new URL("https://www.dataaccess.com/webservicesserver/NumberConversion.wso?WSDL");
+            url = new URL("https://www.dataaccess.com/webservicesserver/NumberConversion.wso?wsdl");
         } catch (MalformedURLException ex) {
             e = new WebServiceException(ex);
         }

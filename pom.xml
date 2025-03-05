@@ -1,49 +1,54 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>es.unican.ss.Practica3</groupId>
-  <artifactId>Practica3</artifactId>
+  <groupId>es.unican.ss</groupId>
+  <artifactId>practica3</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+  <packaging>war</packaging>
+  <name>practica3</name>
   
-  <properties>
-		<maven.compiler.source>17</maven.compiler.source>
-		<maven.compiler.target>17</maven.compiler.target>
-	</properties>
-
-	<dependencies>
-		<dependency>
-			<groupId>javax.xml.bind</groupId>
-			<artifactId>jaxb-api</artifactId>
-			<version>2.3.1</version>
-		</dependency>
-		<dependency>
-			<groupId>com.sun.xml.bind</groupId>
-			<artifactId>jaxb-impl</artifactId>
-			<version>2.3.3</version>
-		</dependency>
-		<dependency>
-			<groupId>com.fasterxml.jackson.core</groupId>
-			<artifactId>jackson-databind</artifactId>
-			<version>2.14.2</version>
-		</dependency>
-		<dependency>
-		    <groupId>jakarta.xml.ws</groupId>
-		    <artifactId>jakarta.xml.ws-api</artifactId>
-		    <version>3.0.1</version>
-		</dependency>
-		<dependency>
-		    <groupId>com.sun.xml.ws</groupId>
-		    <artifactId>jaxws-rt</artifactId>
-		    <version>3.0.1</version>
-		</dependency>
-		<dependency>
-		    <groupId>org.glassfish.jaxb</groupId>
-		    <artifactId>jaxb-runtime</artifactId>
-		    <version>3.0.1</version>
-		</dependency>
-
-
-	</dependencies>
-	<build>
+  
+  <dependencies>
+  	<dependency>
+		<groupId>org.glassfish.metro</groupId>
+		<artifactId>webservices-rt</artifactId>
+		<version>4.0.0-M3</version>
+	</dependency>
+	
+	<dependency>
+		<groupId>javax.xml.bind</groupId>
+		<artifactId>jaxb-api</artifactId>
+		<version>2.3.1</version>
+	</dependency>
+	
+	<dependency>
+		<groupId>com.sun.xml.bind</groupId>
+		<artifactId>jaxb-impl</artifactId>
+		<version>2.3.3</version>
+	</dependency>
+	
+	<dependency>
+		<groupId>com.fasterxml.jackson.core</groupId>
+		<artifactId>jackson-databind</artifactId>
+		<version>2.14.2</version>
+	</dependency>
+	
+	<!-- Dependencia de JAX-WS -->
+   <dependency>
+            <groupId>javax.xml.ws</groupId>
+            <artifactId>jaxws-api</artifactId>
+            <version>2.2.11</version>
+   </dependency>
+    
+    <!-- Dependencia para la implementación de JAX-WS -->
+    <dependency>
+        <groupId>org.glassfish.jersey.core</groupId>
+        <artifactId>jersey-server</artifactId>
+        <version>2.35</version>
+    </dependency>
+    
+  </dependencies>
+  
+  <build>
     <plugins>
         <plugin>
             <groupId>com.sun.xml.ws</groupId>
@@ -55,19 +60,49 @@
                         <goal>wsimport</goal>
                     </goals>
                     <configuration>
-                        <!-- Nombre del paquete donde se generarán las clases -->
-                        <packageName>es.unican.ss.soap</packageName>
-                        <!-- Directorio donde se generarán las clases -->
-                        <sourceDestDir>src/main/java</sourceDestDir>
-                        <!-- URL del WSDL del servicio SOAP -->
                         <wsdlUrls>
-                            <wsdlUrl>https://www.dataaccess.com/webservicesserver/NumberConversion.wso?WSDL</wsdlUrl>
+                            <wsdlUrl>https://www.dataaccess.com/webservicesserver/NumberConversion.wso?wsdl</wsdlUrl>
                         </wsdlUrls>
+                        <sourceDestDir>src/main/java</sourceDestDir>
+                        <packageName>es.unican.ss.soap</packageName>
                     </configuration>
                 </execution>
             </executions>
         </plugin>
     </plugins>
-	</build>
-
+    
+    <pluginManagement>
+    	<plugins>
+    		<!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
+    		<plugin>
+    			<groupId>org.eclipse.m2e</groupId>
+    			<artifactId>lifecycle-mapping</artifactId>
+    			<version>1.0.0</version>
+    			<configuration>
+    				<lifecycleMappingMetadata>
+    					<pluginExecutions>
+    						<pluginExecution>
+    							<pluginExecutionFilter>
+    								<groupId>com.sun.xml.ws</groupId>
+    								<artifactId>
+    									jaxws-maven-plugin
+    								</artifactId>
+    								<versionRange>
+    									[3.0.0,)
+    								</versionRange>
+    								<goals>
+    									<goal>wsimport</goal>
+    								</goals>
+    							</pluginExecutionFilter>
+    							<action>
+    								<ignore></ignore>
+    							</action>
+    						</pluginExecution>
+    					</pluginExecutions>
+    				</lifecycleMappingMetadata>
+    			</configuration>
+    		</plugin>
+    	</plugins>
+    </pluginManagement>
+  </build>
 </project>

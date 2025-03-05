@@ -13,13 +13,14 @@ import es.unican.ss.domain.Autobuses;
 import es.unican.ss.domain.DatosNoDisponibles;
 import es.unican.ss.domain.EstimacionLinea;
 import es.unican.ss.domain.EstimacionesLineas;
+import es.unican.ss.domain.ParadaNoValida;
 import es.unican.ss.soap.NumberConversion;
 import es.unican.ss.soap.NumberConversionSoapType;
 
 
 public class ConsultaAutobuses implements IConsultaAutobuses {
 
-	@Override
+
 	public String consultaTUS(String numeroLinea, String nombreParada)
 			throws DatosNoDisponibles, ParadaNoValida {
 		// Declaración de variables.

@@ -1,5 +1,7 @@
 package es.unican.ss.domain;
 
+import com.sun.xml.ws.config.metro.parser.jsr109.String;
+
 public class ParadaNoValida extends Exception {
 	private static final long serialVersionUID = 1L;
 
@@ -8,7 +10,7 @@ public class ParadaNoValida extends Exception {
      *
      * @param message Mensaje descriptivo del error.
      */
-    public ParadaNoValida(String message) {
-    	super(message);
+    public ParadaNoValida() {
+    	super();
     }
 }

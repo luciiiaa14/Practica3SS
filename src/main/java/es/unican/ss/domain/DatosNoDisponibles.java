@@ -9,7 +9,7 @@ public class DatosNoDisponibles extends Exception {
      *
      * @param message Mensaje descriptivo del error.
      */
-    public DatosNoDisponibles(String message) {
-    	super(message);
+    public DatosNoDisponibles() {
+    	super();
     }
 }
