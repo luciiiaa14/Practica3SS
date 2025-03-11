@@ -12,4 +12,13 @@ public class DatosNoDisponibles extends Exception {
     public DatosNoDisponibles() {
     	super();
     }
+    
+    /**
+     * Constructor que permite especificar un mensaje de error.
+     *
+     * @param message Mensaje descriptivo del error.
+     */
+    public DatosNoDisponibles(String message) {
+        super(message);
+    }
 }
