@@ -11,6 +11,10 @@ public class Autobus {
 	
 	@JsonProperty("ayto:parada")
 	private String nombre;
+	
+	public Autobus() {
+		
+	}
 
 	public Autobus(int id, String nombre) {
 		super();

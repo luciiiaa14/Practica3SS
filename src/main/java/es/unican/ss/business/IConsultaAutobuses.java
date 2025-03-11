@@ -1,8 +1,11 @@
 package es.unican.ss.business;
 
+import java.util.List;
+
 import es.unican.ss.domain.*;
+import jakarta.jws.WebService;
 
-
+@WebService
 public interface IConsultaAutobuses {
 	
 	/**
@@ -15,6 +18,6 @@ public interface IConsultaAutobuses {
 	 * @throws DatosNoDisponibles   Si los datos no están disponibles en el momento de la consulta.
 	 * @throws ParadaNoValida       Si la parada o la línea proporcionadas no existen o son inválidas.
 	 */
-	public String consultaTUS(String numeroLinea, String nombreParada) throws DatosNoDisponibles, ParadaNoValida;
+	public List<Object> consultaTUS(String numeroLinea, String nombreParada) throws DatosNoDisponibles, ParadaNoValida;
 
 }

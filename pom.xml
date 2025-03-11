@@ -46,6 +46,13 @@
         <version>2.35</version>
     </dependency>
     
+    <!-- JUnit 5 dependency -->
+	<dependency>
+		<groupId>org.junit.jupiter</groupId>
+		<artifactId>junit-jupiter</artifactId>
+		<version>5.9.2</version> 
+		<scope>test</scope>
+	</dependency>
   </dependencies>
   
   <build>
@@ -64,7 +71,7 @@
                             <wsdlUrl>https://www.dataaccess.com/webservicesserver/NumberConversion.wso?wsdl</wsdlUrl>
                         </wsdlUrls>
                         <sourceDestDir>src/main/java</sourceDestDir>
-                        <packageName>es.unican.ss.soap</packageName>
+                        <packageName>es.unican.ss</packageName>
                     </configuration>
                 </execution>
             </executions>
